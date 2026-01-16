@@ -1,0 +1,61 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Streamlit
+.streamlit/
+cache/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Data files
+*.csv
+*.xlsx
+*.json
+
+# Environment variables
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Output
+output/
+exports/
+*.png
+*.jpg
+*.jpeg
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build
+dist/
+build/
+*.egg-info/

@@ -1,0 +1,22 @@
+# Dashboard & Web Framework
+streamlit
+plotly
+
+# Data Processing
+pandas
+numpy
+
+# Data Visualization
+matplotlib
+seaborn
+altair
+
+# Data Loading & Sources
+requests
+
+# Utilities
+python-dotenv
+tqdm
+
+# Jupyter & Notebooks
+jupyter
