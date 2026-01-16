@@ -135,7 +135,7 @@ def main():
                 xaxis_title="Jumlah Likes",
                 yaxis_title="Frekuensi"
             )
-            st.plotly_chart(fig1, use_container_width=True)
+            st.plotly_chart(fig1, width='stretch')
         
         with col2:
             # Create histogram with sky blue color gradient based on value magnitude
@@ -160,7 +160,7 @@ def main():
                 xaxis_title="Jumlah Comments",
                 yaxis_title="Frekuensi"
             )
-            st.plotly_chart(fig2, use_container_width=True)
+            st.plotly_chart(fig2, width='stretch')
         
         with col3:
             # Create histogram with sky blue color gradient based on value magnitude
@@ -185,7 +185,7 @@ def main():
                 xaxis_title="Jumlah Shares",
                 yaxis_title="Frekuensi"
             )
-            st.plotly_chart(fig3, use_container_width=True)
+            st.plotly_chart(fig3, width='stretch')
         
         st.markdown("""
         **Insight 1:**
@@ -234,7 +234,7 @@ def main():
         barmode='group'
     )
     
-    st.plotly_chart(fig_platform, use_container_width=True)
+    st.plotly_chart(fig_platform, width='stretch')
     
     st.markdown("""
     **Insight 2:**
@@ -281,7 +281,7 @@ def main():
         barmode='group'
     )
     
-    st.plotly_chart(fig_post_type, use_container_width=True)
+    st.plotly_chart(fig_post_type, width='stretch')
     
     st.markdown("""
     **Insight 3:**
@@ -306,7 +306,7 @@ def main():
     fig_corr.update_layout(
         height=500
     )
-    st.plotly_chart(fig_corr, use_container_width=True)
+    st.plotly_chart(fig_corr, width='stretch')
     
     st.markdown("""
     **Insight 4:**
@@ -370,7 +370,7 @@ def main():
         hovermode='x unified'
     )
     
-    st.plotly_chart(fig_trend, use_container_width=True)
+    st.plotly_chart(fig_trend, width='stretch')
     
     st.markdown("""
     **Insight 5:**
@@ -432,7 +432,7 @@ def main():
         hovermode='x unified'
     )
     
-    st.plotly_chart(fig_timeseries, use_container_width=True)
+    st.plotly_chart(fig_timeseries, width='stretch')
     
     st.markdown("""
     **Insight 6:**
@@ -457,7 +457,7 @@ def main():
         opacity=0.7
     )
     fig_scatter.update_traces(marker=dict(line=dict(width=1, color='DarkSlateGrey')))
-    st.plotly_chart(fig_scatter, use_container_width=True)
+    st.plotly_chart(fig_scatter, width='stretch')
     
     st.markdown("""
     **Insight 7:**
@@ -485,7 +485,7 @@ def main():
         title='Distribusi Metrik Engagement per Platform',
         labels={'platform': 'Platform', 'count': 'Jumlah', 'metric': 'Metrik'}
     )
-    st.plotly_chart(fig_box, use_container_width=True)
+    st.plotly_chart(fig_box, width='stretch')
     
     st.markdown("""
     **Insight 8:**
@@ -516,7 +516,7 @@ def main():
         labels={'post_day': 'Hari dalam Seminggu', 'count': 'Jumlah', 'metric': 'Metrik'},
         category_orders={'post_day': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']}
     )
-    st.plotly_chart(fig_violin, use_container_width=True)
+    st.plotly_chart(fig_violin, width='stretch')
     
     st.markdown("""
     **Insight 9:**
@@ -538,7 +538,7 @@ def main():
         labels={'likes': 'Jumlah Likes', 'comments': 'Jumlah Comments', 'shares': 'Jumlah Shares'},
         opacity=0.7
     )
-    st.plotly_chart(fig_3d, use_container_width=True)
+    st.plotly_chart(fig_3d, width='stretch')
     
     st.markdown("""
     **Insight 10:**
