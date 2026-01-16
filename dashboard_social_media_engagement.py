@@ -13,6 +13,8 @@ import seaborn as sns
 from matplotlib import cm
 from matplotlib.colors import Normalize
 import matplotlib.colors as mcolors
+import os
+from pathlib import Path
 
 def apply_skyblues_by_value(values, patches):
     """
@@ -48,7 +50,15 @@ def main():
     # Load the dataset from the specified path
     @st.cache_data
     def load_data():
-        df = pd.read_csv('database/data/social_media_engagement1.csv')
+        # Get the directory where the script is located
+        script_dir = Path(__file__).parent
+        data_path = script_dir / 'database' / 'data' / 'social_media_engagement1.csv'
+        
+        # Check if file exists before reading
+        if not data_path.exists():
+            raise FileNotFoundError(f"Data file not found at: {data_path}")
+            
+        df = pd.read_csv(data_path)
         # Convert post_time to datetime
         df['post_time'] = pd.to_datetime(df['post_time'])
         # Convert post_day to categorical
