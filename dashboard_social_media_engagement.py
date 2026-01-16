@@ -51,8 +51,17 @@ def main():
     @st.cache_data
     def load_data():
         # Get the directory where the script is located
-        script_dir = Path(__file__).parent
-        data_path = script_dir / 'database' / 'data' / 'social_media_engagement1.csv'
+        # For Streamlit compatibility, use current working directory if __file__ fails
+        try:
+            script_dir = Path(__file__).parent
+            data_path = script_dir / 'database' / 'data' / 'social_media_engagement1.csv'
+        except NameError:
+            # If __file__ is not defined (in some environments), use current directory
+            data_path = Path('database') / 'data' / 'social_media_engagement1.csv'
+        
+        # Also try the absolute path approach
+        if not data_path.exists():
+            data_path = Path.cwd() / 'database' / 'data' / 'social_media_engagement1.csv'
         
         # Check if file exists before reading
         if not data_path.exists():
