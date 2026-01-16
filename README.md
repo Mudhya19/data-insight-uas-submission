@@ -2,7 +2,7 @@
 
 Submission UAS Mata Kuliah **Data Insight** (Take Home) dengan 2 deliverable utama:
 
-1. **Soal 1** — Dataset Social Media Engagement: buat **10 visualisasi** + deskripsi insight.
+1. **Soal 1** — Dataset Social Media Engagement: buat **6 visualisasi** + deskripsi insight.
 2. **Soal 2** — Dashboard COVID-19 United States View: analisis **2a–2e** (insight, target user, elemen desain, hambatan, rekomendasi).
 
 > Konsep repo ini: **tidak ada folder**, semua file ada di **root** supaya simpel untuk submit.
@@ -101,7 +101,7 @@ Format nama file output:
 data insight uas submission/
 ├── setup.sh                           # Setup script
 ├── requirements.txt                   # Dependencies
-├── dashboard_social_media_engagement.py    # Soal 1 - Social Media Engagement Dashboard (10 visualisasi)
+├── dashboard_social_media_engagement.py    # Soal 1 - Social Media Engagement Dashboard (6 visualisasi)
 ├── dashboard_covid19_united_states_view.py # Soal 2 - COVID-19 Dashboard (analisis 2a-2e)
 ├── docs/                            # Documentation
 │   └── social_media_engagement_analysis_report.md # Laporan analisis mendalam soal 1
@@ -141,17 +141,13 @@ Proyek ini menggunakan library berikut:
 
 - Semua file harus berada di root directory (tidak ada subfolder)
 - Dashboard dibuat menggunakan Streamlit untuk kemudahan deployment
-- Soal 1: Dashboard Social Media Engagement memiliki **10 visualisasi** interaktif:
+- Soal 1: Dashboard Social Media Engagement memiliki **6 visualisasi** interaktif:
   1. Distribusi Metrik Engagement
   2. Perbandingan Kinerja Platform Media Sosial
   3. Efektivitas Jenis Postingan
-  4. Korelasi Antar Metrik Engagement
-  5. Tren Engagement Berdasarkan Hari dalam Seminggu
-  6. Tren Engagement Harian (Time Series)
-  7. Scatter Plot - Hubungan Antar Metrik Engagement
-  8. Box Plot - Distribusi Engagement per Platform
-  9. Violin Plot - Distribusi Engagement per Hari
-  10. 3D Scatter Plot - Hubungan Tiga Dimensi Metrik Engagement
+  4. Tren Engagement Berdasarkan Hari dalam Seminggu
+  5. Tren Engagement Harian (Time Series)
+  6. Distribusi Engagement per Platform (Box Plot)
 - Soal 2: Dashboard COVID-19 United States View mencakup analisis 2a-2e:
   - 2a. Insight dari dashboard
   - 2b. Target user
