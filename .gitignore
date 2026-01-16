@@ -27,7 +27,7 @@ cache/
 *.sqlite3
 
 # Data files
-*.csv
+.csv
 *.xlsx
 *.json
 
