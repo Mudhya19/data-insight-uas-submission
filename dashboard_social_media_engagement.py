@@ -291,32 +291,9 @@ def main():
     membantu dalam merancang strategi konten yang lebih efektif.
     """)
     
-    # Visualisasi 4: Correlation Heatmap with Consistent Sky Blue Palette
-    st.header("Visualisasi 4: Korelasi Antar Metrik Engagement")
     
-    numeric_df = filtered_df[['likes', 'comments', 'shares']].corr()
-    
-    fig_corr = px.imshow(
-        numeric_df,
-        text_auto=True,
-        aspect="auto",
-        title="Heatmap Korelasi Antar Metrik Engagement",
-        color_continuous_scale='Blues'  # Use blues color scale
-    )
-    fig_corr.update_layout(
-        height=500
-    )
-    st.plotly_chart(fig_corr, width='stretch')
-    
-    st.markdown("""
-    **Insight 4:**
-    Heatmap korelasi ini menunjukkan hubungan antara berbagai metrik engagement (likes, comments, shares) dengan menggunakan skala warna biru (Blues) yang konsisten. 
-    Nilai korelasi yang tinggi (lebih gelap) menunjukkan bahwa ketika satu metrik tinggi, maka metrik lainnya juga cenderung tinggi. 
-    Ini membantu memahami apakah metrik-metrik ini saling berkaitan dan bisa digunakan sebagai indikator engagement secara keseluruhan.
-    """)
-    
-    # Visualisasi 5: Engagement Trend by Day of Week with Line Chart
-    st.header("Visualisasi 5: Tren Engagement Berdasarkan Hari dalam Seminggu")
+    # Visualisasi 4: Engagement Trend by Day of Week with Line Chart
+    st.header("Visualisasi 4: Tren Engagement Berdasarkan Hari dalam Seminggu")
     
     # Group by day of week to get average engagement metrics
     day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -373,15 +350,15 @@ def main():
     st.plotly_chart(fig_trend, width='stretch')
     
     st.markdown("""
-    **Insight 5:**
+    **Insight 4:**
     Visualisasi line chart ini menunjukkan tren engagement berdasarkan hari dalam seminggu.
     Dengan menggunakan line chart dalam skema warna biru (Blues) yang konsisten dan semakin gelap untuk nilai yang lebih tinggi,
     kita bisa mengamati pola engagement harian - kapan engagement tertinggi dan terendah terjadi.
     Ini sangat berguna untuk menentukan waktu optimal untuk memposting konten di media sosial.
     """)
 
-    # Visualisasi 6: Time Series Engagement Trend with Enhanced Line Chart
-    st.header("Visualisasi 6: Tren Engagement Harian (Time Series)")
+    # Visualisasi 5: Time Series Engagement Trend with Enhanced Line Chart
+    st.header("Visualisasi 5: Tren Engagement Harian (Time Series)")
 
     # Extract date part from datetime for daily aggregation
     filtered_df_with_date = filtered_df.copy()
@@ -435,39 +412,16 @@ def main():
     st.plotly_chart(fig_timeseries, width='stretch')
     
     st.markdown("""
-    **Insight 6:**
+    **Insight 5:**
     Visualisasi time series ini menunjukkan tren engagement harian dari postingan media sosial.
     Dengan menggunakan line chart dalam skema warna biru (Blues) yang konsisten,
     kita bisa mengamati fluktuasi engagement harian sepanjang periode waktu yang tersedia dalam dataset.
     Ini membantu mengidentifikasi pola musiman atau periode puncak engagement.
     """)
 
-    # Visualisasi 7: Scatter Plot - Engagement Metrics Correlation
-    st.header("Visualisasi 7: Scatter Plot - Hubungan Antar Metrik Engagement")
-    
-    fig_scatter = px.scatter(
-        filtered_df,
-        x='likes',
-        y='comments',
-        size='shares',
-        color='platform',
-        hover_data=['post_type', 'post_day'],
-        title='Hubungan antara Likes, Comments, dan Shares (dengan ukuran Shares)',
-        labels={'likes': 'Jumlah Likes', 'comments': 'Jumlah Comments'},
-        opacity=0.7
-    )
-    fig_scatter.update_traces(marker=dict(line=dict(width=1, color='DarkSlateGrey')))
-    st.plotly_chart(fig_scatter, width='stretch')
-    
-    st.markdown("""
-    **Insight 7:**
-    Scatter plot ini menunjukkan hubungan antara jumlah likes dan comments, dengan ukuran titik menunjukkan jumlah shares.
-    Warna berbeda mewakili platform yang berbeda, memungkinkan kita untuk melihat pola antar-platform.
-    Visualisasi ini membantu memahami apakah postingan dengan banyak likes cenderung juga mendapatkan banyak komentar.
-    """)
 
-    # Visualisasi 8: Box Plot - Distribusi Engagement per Platform
-    st.header("Visualisasi 8: Box Plot - Distribusi Engagement per Platform")
+    # Visualisasi 6: Box Plot - Distribusi Engagement per Platform
+    st.header("Visualisasi 6: Box Plot - Distribusi Engagement per Platform")
     
     # Melt the dataframe for box plot
     box_plot_data = filtered_df.melt(
@@ -488,64 +442,13 @@ def main():
     st.plotly_chart(fig_box, width='stretch')
     
     st.markdown("""
-    **Insight 8:**
+    **Insight 6:**
     Box plot ini menunjukkan distribusi metrik engagement (likes, comments, shares) untuk setiap platform.
     Visualisasi ini membantu memahami sebaran data, median, serta adanya outlier pada masing-masing platform.
     Kita dapat melihat platform mana yang memiliki distribusi engagement lebih tinggi secara keseluruhan.
     """)
 
-    # Visualisasi 9: Violin Plot - Distribusi Engagement per Hari
-    st.header("Visualisasi 9: Violin Plot - Distribusi Engagement per Hari dalam Seminggu")
-    
-    # Prepare data for violin plot
-    violin_data = filtered_df.melt(
-        id_vars=['post_day'],
-        value_vars=['likes', 'comments', 'shares'],
-        var_name='metric',
-        value_name='count'
-    )
-    
-    fig_violin = px.violin(
-        violin_data,
-        x='post_day',
-        y='count',
-        color='metric',
-        box=True,
-        points='all',
-        title='Distribusi dan Density Metrik Engagement per Hari',
-        labels={'post_day': 'Hari dalam Seminggu', 'count': 'Jumlah', 'metric': 'Metrik'},
-        category_orders={'post_day': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']}
-    )
-    st.plotly_chart(fig_violin, width='stretch')
-    
-    st.markdown("""
-    **Insight 9:**
-    Violin plot ini menunjukkan distribusi dan kepadatan metrik engagement untuk setiap hari dalam seminggu.
-    Selain menunjukkan distribusi seperti box plot, violin plot juga menunjukkan kepadatan data (density).
-    Ini membantu memahami tidak hanya statistik deskriptif tetapi juga bentuk distribusi data secara keseluruhan.
-    """)
 
-    # Visualisasi 10: 3D Scatter Plot - Engagement Metrics Relationship
-    st.header("Visualisasi 10: 3D Scatter Plot - Hubungan Tiga Dimensi Metrik Engagement")
-    
-    fig_3d = px.scatter_3d(
-        filtered_df,
-        x='likes',
-        y='comments',
-        z='shares',
-        color='platform',
-        title='Hubungan Tiga Dimensi antara Likes, Comments, dan Shares',
-        labels={'likes': 'Jumlah Likes', 'comments': 'Jumlah Comments', 'shares': 'Jumlah Shares'},
-        opacity=0.7
-    )
-    st.plotly_chart(fig_3d, width='stretch')
-    
-    st.markdown("""
-    **Insight 10:**
-    3D scatter plot ini menunjukkan hubungan tiga dimensi antara metrik engagement: likes, comments, dan shares.
-    Setiap titik mewakili sebuah postingan dengan warna yang berbeda menunjukkan platform.
-    Visualisasi ini memberikan perspektif yang lebih komprehensif tentang hubungan kompleks antar metrik engagement.
-    """)
 
 if __name__ == "__main__":
     main()
